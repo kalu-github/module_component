@@ -1,0 +1,23 @@
+include ':app', ':lib_db'
+
+// 依赖
+include ':lib_util'
+include ':lib_context'
+include ':lib_widget'
+include ':lib_core'
+
+// 权限
+include ':permission_core'
+include ':permission_processor'
+include ':permission_annotation'
+
+// 模块
+include ':moudle1'
+include ':module2'
+include ':moudel_photo'
+include ':moudel_x5'
+
+// 路由
+include ':router_core'
+include ':router_processor'
+include ':router_annotation'

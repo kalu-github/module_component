@@ -1,0 +1,13 @@
+apply plugin: rootProject.ext.plugin.java
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':router_annotation')
+
+    implementation rootProject.ext.dependencies.auto_service
+    implementation rootProject.ext.dependencies.squareup_javapoet
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

@@ -1,0 +1,122 @@
+buildscript {
+
+    ext.support_android_version = "28.+"
+    ext.support_multidex_version = "1.0.2"
+    ext.support_gradle_version = "3.1.3"
+    ext.support_kotlin_guava = "23.5-jre"
+    ext.support_kotlin_version = "1.2.51"
+    ext.support_kotlincoroutines_version = "0.23.4"
+    ext.support_anko_version = "0.10.5"
+    ext.support_retrofit_version = "2.4.0"
+    ext.support_rxandroid_version = "2.0.2"
+    ext.support_greendao_version = "3.2.2"
+    ext.support_greendao_sqlcipher_version = "3.5.9"
+    ext.support_glide_version = "4.7.1"
+    ext.support_zxing_version = "3.3.1"
+    ext.support_auto_service_version = "1.0-rc4"
+    ext.support_objectbox_version = "2.0.0"
+    ext.support_javapoet_version = "1.11.1"
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$support_gradle_version"
+        classpath "io.objectbox:objectbox-gradle-plugin:$support_objectbox_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    project.ext {
+
+        // 日志开关
+        isLog = true
+
+        // 组件化开关
+        isModule = true
+
+        config = [
+                log    : "isLog",
+                module : "isModule",
+                boolean: "boolean"
+        ]
+
+        appid = [
+                app      : "com.kalu.component",
+                moudle1  : "demo.prim.com.moudle1",
+                moudle_x5: "model.kalu.x5"
+        ]
+
+        android = [
+                compileSdkVersion: 28,
+                buildToolsVersion: "28.0.1",
+                minSdkVersion    : 15,
+                targetSdkVersion : 28,
+                versionCode      : 1,
+                versionName      : "1.0.0"
+        ]
+
+        plugin = [
+                com_android_application  : 'com.android.application',
+                com_android_library      : 'com.android.library',
+                kotlin_android           : 'kotlin-android',
+                kotlin_kapt              : 'kotlin-kapt',
+                kotlin_android_extensions: 'kotlin-android-extensions',
+                org_greenrobot_greendao  : 'org.greenrobot.greendao',
+                java                     : 'java',
+                io_objectbox             : 'io.objectbox'
+        ]
+
+        dependencies = [
+                "support_appcompat_v7"       : "com.android.support:appcompat-v7:${support_android_version}",
+                "support_v4"                 : "com.android.support:support-v4:${support_android_version}",
+                "support_design"             : "com.android.support:design:${support_android_version}",
+                "support_recyclerview_v7"    : "com.android.support:recyclerview-v7:${support_android_version}",
+                "support_vector_drawable"    : "com.android.support:support-vector-drawable:${support_android_version}",
+                "support_cardview_v7"        : "com.android.support:cardview-v7:${support_android_version}",
+                "support_multidex"           : "com.android.support:multidex:${support_multidex_version}",
+                "kotlin_guava"               : "com.google.guava:guava:${support_kotlin_guava}",
+                "kotlin_stdlib_jre8"         : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${support_kotlin_version}",
+                "kotlin_coroutines_core"     : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${support_kotlincoroutines_version}",
+                "kotlin_anko_core"           : "org.jetbrains.anko:anko:${support_anko_version}",
+                "kotlin_anko_commons"        : "org.jetbrains.anko:anko-commons:${support_anko_version}",
+                "kotlin_anko_sdk27"          : "org.jetbrains.anko:anko-sdk27:${support_anko_version}",
+                "kotlin_anko_coroutines"     : "org.jetbrains.anko:anko-coroutines:${support_anko_version}",
+                "kotlin_anko_appcompat_v7"   : "org.jetbrains.anko:anko-appcompat-v7:${support_anko_version}",
+                "kotlin_anko_design"         : "org.jetbrains.anko:anko-design:${support_anko_version}",
+                "kotlin_anko_recyclerview_v7": "org.jetbrains.anko:anko-recyclerview-v7:${support_anko_version}",
+                "db_greendao"                : "org.greenrobot:greendao:${support_greendao_version}",
+                "db_greendao_sqlcipher"      : "net.zetetic:android-database-sqlcipher:$support_greendao_sqlcipher_version}",
+                "retrofit_core"              : "com.squareup.retrofit2:retrofit:${support_retrofit_version}",
+                "retrofit_converter_gson"    : "com.squareup.retrofit2:converter-gson:${support_retrofit_version}",
+                "retrofit_adapter_rxjava2"   : "com.squareup.retrofit2:adapter-rxjava2:${support_retrofit_version}",
+                "retrofit_rxandroid"         : "io.reactivex.rxjava2:rxandroid:${support_rxandroid_version}",
+                "glide_core"                 : "com.github.bumptech.glide:glide:${support_glide_version}",
+                "glide_compiler"             : "com.github.bumptech.glide:compiler:${support_glide_version}",
+                "zxing_core"                 : "com.google.zxing:core:${support_zxing_version}",
+                "auto_service"               : "com.google.auto.service:auto-service:${support_auto_service_version}",
+                "squareup_javapoet"          : "com.squareup:javapoet:${support_javapoet_version}",
+        ]
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}

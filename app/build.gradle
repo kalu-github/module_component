@@ -1,0 +1,129 @@
+apply plugin: rootProject.ext.plugin.com_android_application
+apply plugin: rootProject.ext.plugin.io_objectbox
+
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+
+        applicationId rootProject.ext.appid.app
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        ndk {
+            // abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            abiFilters 'armeabi-v7a'
+        }
+
+        buildConfigField(rootProject.ext.config.boolean, rootProject.ext.config.log, String.valueOf(isLog))
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LEO_DEBUG", "false" // 不显示Log
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "boolean", "LEO_DEBUG", "true" // 显示Log
+            minifyEnabled false
+            signingConfig signingConfigs.debug  // 编译加速
+            ext.alwaysUpdateBuildId = false  // 编译加速
+            buildConfigField "long", "BUILD_TIMESTAMP", "000000000"  // 编译加速
+        }
+    }
+    lintOptions {
+        disable "ResourceType"
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    if (project.hasProperty("devBuild")) {  // 编译加速
+        aaptOptions.cruncherEnabled = false  // 编译加速
+    }
+    dexOptions {          // 编译加速
+        javaMaxHeapSize "4g"
+        // incremental false
+    }
+    flavorDimensions "default"  // 编译加速
+    productFlavors {  // 编译加速
+        development {  // 编译加速
+            minSdkVersion 15  // 编译加速
+            dimension "default"  // 编译加速
+            resConfigs("en", "xxhdpi")  // 编译加速
+        }
+        production {  // 编译加速
+            dimension "default"  // 编译加速
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def name = outputFile.name.replace(".apk", "_${defaultConfig.versionName}_" + new Date().format("yyyy-MM-dd-HH-mm-ss") + ".apk")
+                if (name.contains("app-production")) {
+                    outputFileName = name.replace("app-production-release", "app_release")
+                } else if (name.contains("app-development")) {
+                    outputFileName = name.replace("app-development-release", "app_development")
+                } else {
+                    outputFileName = name
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':lib_db')
+    implementation project(':lib_core')
+    implementation project(':lib_util')
+    implementation project(':lib_context')
+
+    implementation project(':router_core')
+    implementation project(':router_annotation')
+    annotationProcessor project(':router_processor')
+
+    implementation rootProject.ext.dependencies.support_appcompat_v7
+    implementation rootProject.ext.dependencies.support_recyclerview_v7
+    implementation rootProject.ext.dependencies.support_multidex
+    implementation rootProject.ext.dependencies.retrofit_core
+    implementation rootProject.ext.dependencies.retrofit_adapter_rxjava2
+    implementation rootProject.ext.dependencies.retrofit_converter_gson
+    implementation rootProject.ext.dependencies.retrofit_rxandroid
+
+    if (isModule) {
+        implementation project(':moudle1')
+        implementation project(':module2')
+        implementation project(':moudel_photo')
+        implementation project(':moudel_x5')
+    }
+}

@@ -1,0 +1,9 @@
+apply plugin: rootProject.ext.plugin.java
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

@@ -1,0 +1,10 @@
+apply plugin: rootProject.ext.plugin.java
+
+dependencies {
+    implementation project(':permission_annotation')
+    implementation rootProject.ext.dependencies.auto_service
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
