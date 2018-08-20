@@ -51,7 +51,6 @@ public interface BasePresenter {
     String NUMBER = "number";
     String TYPE = "type";
 
-
     String PRESCRIPTION_DATE = "prescription_date";
     String JSON_CONTENT = "json_content";
     String OLD_DATA = "old_data";
@@ -62,71 +61,6 @@ public interface BasePresenter {
     String DOCTOR_ID = "doctorid";
     String DOCTOR_NAME = "doctor_name";
     String SUBMIT_DATETIME = "submit_datetime";
-
-//    default HashMap<String, Object> createDatas(String dataType) {
-//
-//        final HashMap<String, Object> params1 = new HashMap<>();
-//        params1.clear();
-//        params1.put(VERSION, BaseConstant.VERSION);
-//        params1.put(PLATFORM, BaseConstant.PLATFROM);
-//        params1.put(DATATYPE, dataType);
-//        params1.put(CHECK_CODE, NULL_STR);
-//        return params1;
-//    }
-//
-//    default RequestBody createParams(Map<String, Object> map, String dataType) {
-//
-//        final StringBuilder keyName = new StringBuilder();
-//        final HashMap<String, Object> map2 = new HashMap<>();
-//
-//        final Long doctorId = getDoctorId();
-//        if (null != doctorId && !doctorId.equals(0L)) {
-//            map2.put(DOCTOR_ID, doctorId);
-//            keyName.append(DOCTOR_ID);
-//        }
-//
-//        final String doctorName = getDoctorName();
-//        if (!TextUtils.isEmpty(doctorName)) {
-//            if (!map2.isEmpty()) {
-//                keyName.append(COMMA);
-//            }
-//            map2.put(DOCTOR_NAME, doctorName);
-//            keyName.append(DOCTOR_NAME);
-//        }
-//
-//        if (null != map) {
-//            for (Map.Entry<String, Object> entry : map.entrySet()) {
-//                if (!map2.isEmpty()) {
-//                    keyName.append(COMMA);
-//                }
-//                keyName.append(entry.getKey());
-//                map2.put(entry.getKey(), entry.getValue());
-//            }
-//        }
-//
-//        map2.put(KEY_NAME, keyName.toString());
-//
-//        final HashMap<String, Object> map1 = createDatas(dataType);
-//        map1.put(MSG_DATAS, map2);
-//
-//        final Gson mGson = new Gson();
-//        final String params = mGson.toJson(map1);
-//        LogUtil.e("BasePresenter", "createParams ==> " + params);
-//
-//        return RequestBody.create(MediaType.parse(MEDIA_TYPE), params);
-//    }
-//
-//    default <T> RequestBody createParams(T model, String dataType) {
-//
-//        final HashMap<String, Object> map1 = createDatas(dataType);
-//        map1.put(MSG_DATAS, model);
-//
-//        final Gson mGson = new Gson();
-//        final String params = mGson.toJson(map1);
-//        LogUtil.e("BasePresenter", "createParams ==> " + params);
-//
-//        return RequestBody.create(MediaType.parse(MEDIA_TYPE), params);
-//    }
 
     default void request(Context context, Observable observable, OnModelChangeListener listener) {
         mBaseModel.request(context, observable, listener);

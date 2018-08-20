@@ -8,6 +8,7 @@ import com.google.gson.annotations.Expose;
  */
 public class HttpResult<T> {
 
+    // 过滤序列化
     @Expose(serialize = false, deserialize = false)
     private final String OK = "0";
 
@@ -17,10 +18,6 @@ public class HttpResult<T> {
     private String message = null;
     @Expose
     private T data = null;
-
-    public String getShow_et_status() {
-        return show_et_status;
-    }
 
     public void setShow_et_status(String show_et_status) {
         this.show_et_status = show_et_status;
