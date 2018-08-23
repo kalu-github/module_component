@@ -3,7 +3,7 @@
     package="com.model.photo">
 
     <application>
-        <activity android:name=".MainPhotoActivity"></activity>
+        <activity android:name=".MainPhotoActivity" />
     </application>
 
 </manifest>

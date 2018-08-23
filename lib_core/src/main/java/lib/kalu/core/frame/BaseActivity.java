@@ -35,10 +35,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends FragmentActi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         initOrientation();
-        final View content = LayoutInflater.from(getApplicationContext()).inflate(initView(), null);
-        setContentView(content);
+        setContentView(initView());
 
 //        if (!setFull()) {
 //            final ViewGroup root = findViewById(android.R.id.content);

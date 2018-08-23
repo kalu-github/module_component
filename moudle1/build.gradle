@@ -104,6 +104,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.dependencies.support_appcompat_v7
     implementation project(':lib_core')
+    implementation project(':lib_context')
 
     implementation project(':router_core')
     implementation project(':router_annotation')

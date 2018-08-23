@@ -36,7 +36,7 @@ allprojects {
     project.ext {
 
         // 日志开关
-        isLog = true
+        isLog = false
 
         // 组件化开关
         isModule = true

@@ -107,10 +107,10 @@ dependencies {
     implementation project(':lib_core')
     implementation project(':lib_util')
     implementation project(':lib_context')
+    implementation project(':lib_widget')
 
     implementation project(':router_core')
     implementation project(':router_annotation')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     annotationProcessor project(':router_processor')
 
     implementation rootProject.ext.dependencies.support_appcompat_v7

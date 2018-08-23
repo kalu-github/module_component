@@ -9,7 +9,7 @@
 
     <application
         android:name=".MoudelApp"
-        android:theme="@style/AppTheme">
+        android:theme="@style/ThemeWhite">
         <activity android:name=".X5OfficeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

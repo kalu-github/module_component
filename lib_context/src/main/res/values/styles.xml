@@ -1,0 +1,36 @@
+<resources>
+
+    <style name="ThemeBase" parent="Theme.AppCompat.Light.NoActionBar">
+        // 导航栏颜色[Toolbar]
+        <item name="colorPrimary">@color/colorPrimary</item>
+        // CheckBox的颜色
+        <item name="colorAccent">@color/color_bg_theme</item>
+        // 默认动画
+        <item name="android:windowIsTranslucent">false</item>
+        // 短暂黑屏
+        <item name="android:windowContentOverlay">@null</item>
+        // A 启动 B 时，A 从屏幕上消失，这时执行的是A的
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        // A 启动 B 时，B 出现在屏幕上，这时执行的是B的
+        <item name="android:activityOpenExitAnimation">@null</item>
+        // 从 B 返回A时，B从屏幕上消失，这时执行的是B的
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        // 从 B 返回A时，A 出现在屏幕上，这时执行的是A的
+        <item name="android:activityCloseExitAnimation">@null</item>
+    </style>
+
+    <style name="ThemeWhite" parent="ThemeBase">
+        // 状态栏颜色
+        <item name="colorPrimaryDark">@color/color_bg_blue</item>
+        // 当前窗口背景颜色
+        <item name="android:windowBackground">@color/color_white</item>
+    </style>
+
+    <style name="ThemeFull" parent="ThemeBase">
+        // 全屏
+        <item name="android:windowFullscreen">true</item>
+        // 当前窗口背景颜色
+        <item name="android:windowBackground">@color/color_bg_theme</item>
+    </style>
+
+</resources>

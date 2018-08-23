@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="123456789" />
+    <lib.kalu.widget.timer.TimerView
+        android:id="@+id/splash_timer"
+        android:layout_width="@dimen/d40"
+        android:layout_height="@dimen/d40"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/d20"
+        android:layout_marginTop="@dimen/d40"
+        app:tv_bg_color="@color/color_bg_blue"
+        app:tv_circle_color="@color/color_black"
+        app:tv_stock_color="@color/color_bg_theme"
+        app:tv_stock_size="@dimen/d2"
+        app:tv_text_size="@dimen/s10"
+        app:tv_time_auto="true"
+        app:tv_time_long="4000"
+        app:tv_time_show="true" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:descendantFocusability="blocksDescendants"
-        android:fillViewport="true">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="100dp"
-                android:hint="请输入信息" />
-
-        </RelativeLayout>
-
-    </ScrollView>
-
-</RelativeLayout>
+</merge>

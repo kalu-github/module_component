@@ -1,4 +1,4 @@
-package com.kalu.component.main;
+package com.kalu.component.splash;
 
 import lib.kalu.core.frame.BaseView;
 

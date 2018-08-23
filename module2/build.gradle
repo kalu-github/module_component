@@ -97,6 +97,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':lib_context')
+
     implementation rootProject.ext.dependencies.support_appcompat_v7
 
     implementation project(':router_core')

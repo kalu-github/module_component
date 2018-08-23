@@ -3,7 +3,7 @@
     package="com.module2">
 
     <application>
-        <activity android:name=".ModuleTest2Activity"></activity>
+        <activity android:name=".ModuleTest2Activity"/>
     </application>
 
 </manifest>

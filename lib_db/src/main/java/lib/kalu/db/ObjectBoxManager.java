@@ -20,7 +20,6 @@ public final class ObjectBoxManager {
     private BoxStore mBoxStore;
     private final DataSubscriptionList subscriptions = new DataSubscriptionList();
 
-
     private static class SingletonHolder {
         private final static ObjectBoxManager instance = new ObjectBoxManager();
     }
