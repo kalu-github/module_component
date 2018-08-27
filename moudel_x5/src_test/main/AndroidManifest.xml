@@ -17,6 +17,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".X5BrowserActivity" />
+        <activity android:name=".browser.X5BrowserActivity" />
     </application>
 </manifest>

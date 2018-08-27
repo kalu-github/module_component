@@ -54,6 +54,7 @@ public final class HttpInterceptor implements Interceptor {
         final Request request = chain.request();
         final String requestUrl = request.url().toString();
         final Request.Builder requestBuilder = request.newBuilder();
+        final RequestBody requestBody = request.body();
 
         if (OK.equals(request.header(DOWNLOAD))) {
 
@@ -103,7 +104,6 @@ public final class HttpInterceptor implements Interceptor {
                 LogUtil.e(TAG, "Http request[config] ==> cache = " + needCache + ", login = " + needLogin);
 
                 if (POST.equalsIgnoreCase(request.method())) {
-                    final RequestBody requestBody = request.body();
                     if (requestBody instanceof FormBody) {
                         final FormBody formBody = (FormBody) requestBody;
                         for (int i = 0; i < formBody.size(); i++) {

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <WebView
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d50"
+        android:background="#66000000" />
+
+    <com.tencent.smtt.sdk.WebView
         android:id="@+id/module_x5_web"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/d50" />
 
-</LinearLayout>
+</merge>

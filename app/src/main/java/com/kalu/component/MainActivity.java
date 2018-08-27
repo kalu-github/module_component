@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.kalu.component.api.HttpClient;
-import com.model.photo.MainPhotoActivity;
+import com.model.photo.main.MainPhotoActivity;
 import com.module2.Module2Service;
 import router.kalu.annotation.Router;
 import router.kalu.core.RouterManager;
@@ -18,7 +18,7 @@ import router.kalu.core.RouterManager;
 import lib.demo.util.LogUtil;
 import lib.kalu.core.TestService;
 import lib.kalu.core.http.listener.OnSimpleHttpChangeListener;
-import model.kalu.x5.X5BrowserActivity;
+import model.kalu.x5.browser.X5BrowserActivity;
 import model.kalu.x5.X5OfficeActivity;
 
 @Router(path = "/app/main")
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 RouterManager.getInstance().setPath(X5BrowserActivity.PATH)
-                        .putString(X5BrowserActivity.URL, "http://www.baidu.com")
+                        .putString(X5BrowserActivity.URL, "http://www.atguigu.com/")
                         .putString(X5BrowserActivity.NAME, "测试信息")
                         .start(MainActivity.this, 1112);
             }

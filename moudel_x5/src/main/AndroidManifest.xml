@@ -9,7 +9,7 @@
 
     <application>
         <activity android:name=".X5OfficeActivity" />
-        <activity android:name=".X5BrowserActivity" />
+        <activity android:name=".browser.X5BrowserActivity" />
     </application>
 
 </manifest>

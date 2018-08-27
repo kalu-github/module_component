@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<lib.quasar.widget.tab.TextTabLayout-->
+        <!--android:id="@+id/activity_comm_album_menu"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/d46"-->
+        <!--android:background="@color/color_bg_theme"-->
+        <!--android:paddingLeft="@dimen/d100"-->
+        <!--android:paddingRight="@dimen/d100"-->
+        <!--app:ttl_indicator_color="@color/color_white"-->
+        <!--app:ttl_indicator_corner_radius="@dimen/d5"-->
+        <!--app:ttl_indicator_height="@dimen/d2"-->
+        <!--app:ttl_indicator_margin_bottom="@dimen/d4"-->
+        <!--app:ttl_indicator_width_equal_title="true"-->
+        <!--app:ttl_tab_space_equal="true"-->
+        <!--app:ttl_text_bold="BOTH"-->
+        <!--app:ttl_text_color_normal="@color/text"-->
+        <!--app:ttl_text_color_select="@color/color_white"-->
+        <!--app:ttl_text_size="@dimen/s15" />-->
+
+    <TextView
+        android:id="@+id/activity_comm_album_back"
+        android:layout_width="@dimen/d46"
+        android:layout_height="@dimen/d46"
+        android:gravity="center"
+        android:text="返回" />
+
+    <TextView
+        android:id="@+id/activity_comm_album_ok"
+        android:layout_width="@dimen/d46"
+        android:layout_height="@dimen/d46"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="确定" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/activity_comm_album_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/d46" />
+
+</RelativeLayout>

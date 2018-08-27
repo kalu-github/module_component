@@ -1,20 +1,24 @@
-package model.kalu.x5;
+package model.kalu.x5.browser;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
+
+import lib.kalu.core.frame.BaseActivity;
+import model.kalu.x5.BuildConfig;
+import model.kalu.x5.R;
 import router.kalu.annotation.Extra;
 import router.kalu.annotation.Router;
 import router.kalu.core.RouterManager;
 
-import static model.kalu.x5.X5BrowserActivity.PATH;
+import static model.kalu.x5.browser.X5BrowserActivity.PATH;
 
 @Router(path = PATH)
-public final class X5BrowserActivity extends FragmentActivity {
+public final class X5BrowserActivity extends BaseActivity<X5BrowserPresenter> implements X5BrowserView {
 
     public static final String PATH = "/module_x5_browser/browser";
     public static final String URL = "mHtmlUrl";
@@ -26,11 +30,13 @@ public final class X5BrowserActivity extends FragmentActivity {
     public String mHtmlName = "";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int initView() {
         RouterManager.getInstance().inject(this);
-        setContentView(R.layout.layout_module_x5_browser);
+        return R.layout.layout_module_x5_browser;
+    }
 
+    @Override
+    public void initDataLocal() {
         if (TextUtils.isEmpty(mHtmlUrl)) {
             if (BuildConfig.isModule) {
                 Toast.makeText(getApplicationContext(), "网址不能为空", Toast.LENGTH_SHORT).show();
@@ -50,5 +56,17 @@ public final class X5BrowserActivity extends FragmentActivity {
             }
         });
         mWebView.loadUrl(mHtmlUrl);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        final WebView mWebView = findViewById(R.id.module_x5_web);
+        if (null != mWebView && mWebView.canGoBack()) {
+            mWebView.goBack();
+            return;
+        }
+
+        super.onBackPressed();
     }
 }

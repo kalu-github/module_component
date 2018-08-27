@@ -1,15 +1,17 @@
-package com.model.photo;
+package com.model.photo.main;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.model.photo.R;
+
 import router.kalu.annotation.Extra;
 import router.kalu.annotation.Router;
 import router.kalu.core.RouterManager;
 
-import static com.model.photo.MainPhotoActivity.PATH;
+import static com.model.photo.main.MainPhotoActivity.PATH;
 
 @Router(path = PATH)
 public final class MainPhotoActivity extends AppCompatActivity {
@@ -22,7 +24,7 @@ public final class MainPhotoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.moudel_photo_layout);
+        setContentView(R.layout.moudel_layout_photo);
 
         RouterManager.getInstance().inject(this);
 
