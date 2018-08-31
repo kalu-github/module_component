@@ -1,6 +1,4 @@
-## 组件化实现方案
-
-### app 配置
+#### 配置
 ```
 if (isModule) {
     apply plugin: rootProject.ext.plugin.com_android_library
