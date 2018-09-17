@@ -12,14 +12,15 @@ import android.widget.Toast;
 import com.kalu.component.api.HttpClient;
 import com.model.photo.main.MainPhotoActivity;
 import com.module2.Module2Service;
-import router.kalu.annotation.Router;
-import router.kalu.core.RouterManager;
 
 import lib.demo.util.LogUtil;
 import lib.kalu.core.TestService;
+import lib.kalu.core.click.SingleClick;
 import lib.kalu.core.http.listener.OnSimpleHttpChangeListener;
-import model.kalu.x5.browser.X5BrowserActivity;
 import model.kalu.x5.X5OfficeActivity;
+import model.kalu.x5.browser.X5BrowserActivity;
+import router.kalu.annotation.Router;
+import router.kalu.core.RouterManager;
 
 @Router(path = "/app/main")
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 测试重复点击, 过滤
+        findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {
+
+            @SingleClick
+            @Override
+            public void onClick(View view) {
+                LogUtil.e("kalu", "onClick ==>");
+            }
+        });
 
         HttpClient.subscribe(getApplicationContext(), HttpClient.getInstance().getHttpService().test(), new OnSimpleHttpChangeListener<Object>() {
 

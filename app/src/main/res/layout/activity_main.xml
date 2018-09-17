@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/click"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/color_bg_peach"
         android:gravity="center"
-        android:text="标题信息"
+        android:text="标题信息[重复点击]"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#454545"
-        android:orientation="vertical"
-        tools:context="com.kalu.component.MainActivity">
+        android:background="#9b9b9b"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,84 +26,58 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
                 android:text="我的地址是：/app/main"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/appToBrowser"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorAccent"
-                android:padding="10dp"
-                android:text="module_x5_browser"
-                android:textColor="#ffffff" />
+                android:text="module_x5_browser" />
 
             <Button
                 android:id="@+id/appToOffice"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorAccent"
-                android:padding="10dp"
-                android:text="module_x5_office"
-                android:textColor="#ffffff" />
+                android:text="module_x5_office" />
 
             <Button
                 android:id="@+id/appToPhoto"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorAccent"
-                android:padding="10dp"
-                android:text="跳到module_photo"
-                android:textColor="#ffffff" />
+                android:text="跳到module_photo" />
 
             <Button
                 android:id="@+id/appToModule"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorAccent"
-                android:padding="10dp"
-                android:text="跳到module1"
-                android:textColor="#ffffff" />
+                android:text="跳到module1" />
 
             <Button
                 android:id="@+id/appToModule2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorAccent"
-                android:padding="10dp"
-                android:text="跳到module2"
-                android:textColor="#ffffff" />
+                android:text="跳到module2" />
 
             <Button
                 android:id="@+id/appToService1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="10dp"
-                android:text="模块间业务通信-调用module1业务方法"
-                android:textColor="#ffffff" />
+                android:text="模块间业务通信-调用module1业务方法" />
 
             <Button
                 android:id="@+id/appToService2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:padding="10dp"
-                android:text="模块间业务通信-调用module2业务方法"
-                android:textColor="#ffffff" />
+                android:text="模块间业务通信-调用module2业务方法" />
 
             <Button
                 android:id="@+id/appToFragment"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="加载module2的fragment" />
 
