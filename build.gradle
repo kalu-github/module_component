@@ -16,6 +16,8 @@ buildscript {
     ext.support_auto_service_version = "1.0-rc4"
     ext.support_objectbox_version = "2.0.0"
     ext.support_javapoet_version = "1.11.1"
+    ext.support_aspectjx_version = "2.0.2"
+    ext.support_aspectjrt_version = "1.8.9"
 
     repositories {
         google()
@@ -24,6 +26,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$support_gradle_version"
         classpath "io.objectbox:objectbox-gradle-plugin:$support_objectbox_version"
+        classpath "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:$support_aspectjx_version"
     }
 }
 
@@ -64,7 +67,8 @@ ext {
             kotlin_android_extensions: 'kotlin-android-extensions',
             org_greenrobot_greendao  : 'org.greenrobot.greendao',
             java                     : 'java',
-            io_objectbox             : 'io.objectbox'
+            io_objectbox             : 'io.objectbox',
+            android_aspectjx         : 'android-aspectjx',
     ]
 
     dependencies = [
@@ -96,6 +100,8 @@ ext {
             "zxing_core"                 : "com.google.zxing:core:${support_zxing_version}",
             "auto_service"               : "com.google.auto.service:auto-service:${support_auto_service_version}",
             "squareup_javapoet"          : "com.squareup:javapoet:${support_javapoet_version}",
+            "aspectjrt_core"             : "org.aspectj:aspectjrt:${support_aspectjrt_version}"
+
     ]
 }
 

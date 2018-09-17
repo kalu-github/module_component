@@ -87,4 +87,5 @@ dependencies {
     implementation rootProject.ext.dependencies.retrofit_core
     implementation rootProject.ext.dependencies.retrofit_converter_gson
     implementation rootProject.ext.dependencies.retrofit_rxandroid
+    implementation rootProject.ext.dependencies.aspectjrt_core
 }

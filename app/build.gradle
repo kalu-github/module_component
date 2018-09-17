@@ -1,5 +1,6 @@
 apply plugin: rootProject.ext.plugin.com_android_application
 apply plugin: rootProject.ext.plugin.io_objectbox
+apply plugin: rootProject.ext.plugin.android_aspectjx
 
 android {
 
