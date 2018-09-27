@@ -20,8 +20,18 @@ public final class HttpClient extends BaseClient {
             .connectTimeout(5, TimeUnit.SECONDS)
             .writeTimeout(5, TimeUnit.SECONDS)
             .readTimeout(5, TimeUnit.SECONDS)
-            .retryOnConnectionFailure(false) // 设置出现错误进行重新连接。
+            .retryOnConnectionFailure(false)
             .addInterceptor(new HttpInterceptor())
+            .proxySelector(new ProxySelector() {
+                @Override
+                public List<Proxy> select(URI uri) {
+                    return Collections.singletonList(Proxy.NO_PROXY);
+                }
+
+                @Override
+                public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
+                }
+            })
             .build();
 
     private volatile Retrofit retrofit = new Retrofit.Builder()

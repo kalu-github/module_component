@@ -2,7 +2,7 @@ buildscript {
 
     ext.support_android_version = "28.+"
     ext.support_multidex_version = "1.0.2"
-    ext.support_gradle_version = "3.1.4"
+    ext.support_gradle_version = "3.2.0"
     ext.support_kotlin_guava = "23.5-jre"
     ext.support_kotlin_version = "1.2.51"
     ext.support_kotlincoroutines_version = "0.23.4"
@@ -14,7 +14,7 @@ buildscript {
     ext.support_glide_version = "4.7.1"
     ext.support_zxing_version = "3.3.1"
     ext.support_auto_service_version = "1.0-rc4"
-    ext.support_objectbox_version = "2.0.0"
+    ext.support_objectbox_version = "2.1.0"
     ext.support_javapoet_version = "1.11.1"
     ext.support_aspectjx_version = "2.0.2"
     ext.support_aspectjrt_version = "1.8.9"
@@ -52,7 +52,7 @@ ext {
 
     android = [
             compileSdkVersion: 28,
-            buildToolsVersion: "28.0.1",
+            buildToolsVersion: "28.0.2",
             minSdkVersion    : 15,
             targetSdkVersion : 28,
             versionCode      : 1,
