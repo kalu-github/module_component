@@ -1,4 +1,5 @@
-#### 配置
+##
+## 配置说明
 ```
 if (isModule) {
     apply plugin: rootProject.ext.plugin.com_android_library
